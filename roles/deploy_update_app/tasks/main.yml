@@ -20,6 +20,11 @@
                 monitor: 1m
               restart_policy:
                 max_attempts: 3
+            healthcheck:
+              test: curl -sS http://127.0.0.1:5000 || echo 1
+              interval: 30s
+              timeout: 3s
+              retries: 12    
           nginx:
             image: "{{ deploy_nginx_image }}"
             ports:
