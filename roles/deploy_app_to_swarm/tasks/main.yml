@@ -40,9 +40,5 @@
             image: "{{ deploy_nginx_version }}"
             ports:
               - "{{ nginx_ports }}"
-#            healthcheck:
-#              test: "{{ nginx_test }}"
-#              interval: 20s
-#              retries: 20
             deploy:
               replicas: 2

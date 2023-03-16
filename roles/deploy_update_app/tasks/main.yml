@@ -18,20 +18,4 @@
               retries: 20
             deploy:
               replicas: 2
-#              update_config:
-#                parallelism: 1
-#                failure_action: rollback
-#                delay: 35s
-#              rollback_config:
-#                parallelism: 0
-#                order: stop-first
-#          nginx:
-#            image: "{{ deploy_nginx_version }}"
-#            ports:
-#              - "{{ nginx_ports }}"
-#            healthcheck:
-#              test: "{{ nginx_test }}"
-#              interval: 5s
-#              retries: 20
-#            deploy:
-#              replicas: 2
+
