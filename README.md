@@ -4,8 +4,8 @@
 
 ## Getting started
 
-Add host:<br>
+добавить параметры host:<br>
 environments/dev/inventory_file<br><br>
-Running the roles<br>
-ansible-playbook playbooks/playbook_app_swarm.yml<br>
-ansible-playbook playbooks/playbook_update_app.yml
+запуск roles<br>
+Установка Swarm и app ansible-playbook playbooks/playbook_app_swarm.yml<br>
+Oбновелние верси приложения ansible-playbook playbooks/playbook_update_app.yml
