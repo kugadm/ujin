@@ -20,4 +20,12 @@
                 monitor: 1m
               restart_policy:
                 max_attempts: 3
-
+          nginx:
+            image: "{{ deploy_nginx_image }}"
+            ports:
+              - "{{ nginx_ports }}"
+            depends_on:
+              - app
+            deploy:
+              replicas: 2
+              
