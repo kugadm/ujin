@@ -28,17 +28,22 @@
       - version: '3.7'
         services:
           app:
-            image: "{{ deploy_app_version }}"
+            image: "{{ deploy_app_image }}:{{ deploy_app_version }}"
             ports:
               - "{{ app_ports }}"
             deploy:
               replicas: 2
               update_config:
                 parallelism: 1
-                delay: 10s
+                delay: 3s
           nginx:
-            image: "{{ deploy_nginx_version }}"
+            image: "{{ deploy_nginx_image }}"
             ports:
               - "{{ nginx_ports }}"
+            depends_on:
+              - app
             deploy:
               replicas: 2
+              update_config:
+                parallelism: 1
+                delay: 10s
