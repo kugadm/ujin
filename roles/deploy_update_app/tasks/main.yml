@@ -1,0 +1,37 @@
+---
+
+
+- name: Update stack
+  docker_stack:
+    state: present
+    name: mystack
+    compose:
+      - version: '3.7'
+        services:
+          app:
+            image: "{{ deploy_app_version }}"
+            ports:
+              - "{{ app_ports }}"
+            healthcheck:
+              test: "{{ app_test }}"
+              interval: 5s
+              retries: 20
+            deploy:
+              replicas: 2
+#              update_config:
+#                parallelism: 1
+#                failure_action: rollback
+#                delay: 35s
+#              rollback_config:
+#                parallelism: 0
+#                order: stop-first
+#          nginx:
+#            image: "{{ deploy_nginx_version }}"
+#            ports:
+#              - "{{ nginx_ports }}"
+#            healthcheck:
+#              test: "{{ nginx_test }}"
+#              interval: 5s
+#              retries: 20
+#            deploy:
+#              replicas: 2

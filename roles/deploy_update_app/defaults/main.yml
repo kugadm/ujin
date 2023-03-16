@@ -1,0 +1,7 @@
+---
+deploy_app_version: kug999/app:v1.1
+deploy_nginx_version: kug999/nginx:v1.1
+app_ports: "5000:5000"
+app_test: curl -f http://localhost:5000
+nginx_ports: "80:80"
+nginx_test: curl -f http://localhost
